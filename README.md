@@ -184,6 +184,8 @@ Ejemplo de estructura:
 
 Si AurenTermKit te resulta útil, ⭐ **deja una estrella en el repo**: ayuda a que más desarrolladores lo encuentren.
 
+¿Quieres contactar al creador? Sígueme en [Instagram](https://www.instagram.com/jhonattan_aron/).
+
 ## Licencia
 
 Todavía no se ha elegido una licencia para el repositorio.
