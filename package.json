@@ -2,7 +2,35 @@
   "name": "auren-termkit",
   "version": "1.0.0",
   "description": "Administrador interactivo de colecciones, tareas y terminales para desarrollo",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JhonattanAron/Auren_Terminal.git"
+  },
+  "homepage": "https://github.com/JhonattanAron/Auren_Terminal#readme",
+  "bugs": {
+    "url": "https://github.com/JhonattanAron/Auren_Terminal/issues"
+  },
   "main": "src/cli.js",
+  "bin": {
+    "aurentermkit": "./bin/aurentermkit.js"
+  },
+  "files": [
+    "bin/aurentermkit.js",
+    "src/cli.js",
+    "assets/aurentermkit-preview.svg",
+    "data/collections.example.json",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "terminal",
+    "cli",
+    "tui",
+    "developer-tools",
+    "task-runner"
+  ],
   "scripts": {
     "start": "node src/cli.js",
     "dev": "node src/cli.js"

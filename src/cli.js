@@ -9,7 +9,10 @@ const root = path.resolve(__dirname, '..');
 const defaultTerminalDirectory = process.platform === 'win32'
   ? (process.env.USERPROFILE || os.homedir())
   : os.homedir();
-const dataFile = path.join(root, 'data', 'collections.json');
+const configDirectory = process.env.AURENTERMKIT_CONFIG_DIR
+  ? path.resolve(process.env.AURENTERMKIT_CONFIG_DIR)
+  : path.join(root, 'data');
+const dataFile = path.join(configDirectory, 'collections.json');
 const isWindows = process.platform === 'win32';
 let data;
 let selectedCollection = 0;
@@ -24,8 +27,12 @@ let alternateScreen = false;
 const sessions = [];
 
 function load() {
-  try { data = JSON.parse(fs.readFileSync(dataFile, 'utf8')); }
-  catch { data = { collections: [] }; save(); }
+  fs.mkdirSync(path.dirname(dataFile), { recursive: true });
+  if (!fs.existsSync(dataFile)) { data = { collections: [] }; save(); }
+  else {
+    try { data = JSON.parse(fs.readFileSync(dataFile, 'utf8')); }
+    catch (error) { console.error(`No se pudo leer la configuración ${dataFile}: ${error.message}`); process.exit(1); }
+  }
   if (!Array.isArray(data.collections)) data.collections = [];
   data.collections.forEach(collection => { if (!Array.isArray(collection.tasks)) collection.tasks = []; });
 }

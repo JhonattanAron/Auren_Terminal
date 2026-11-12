@@ -10,6 +10,7 @@ Guarda comandos por proyecto, inicia tu stack con una tecla y sigue todos los lo
 ![Runtime dependencies](https://img.shields.io/badge/runtime%20dependencies-0-8b7cff)
 ![Windows · macOS · Linux](https://img.shields.io/badge/platforms-Windows%20%7C%20macOS%20%7C%20Linux-51556a)
 ![Terminal UI](https://img.shields.io/badge/interface-terminal-42b883)
+[![GitHub stars](https://img.shields.io/github/stars/JhonattanAron/Auren_Terminal?style=social)](https://github.com/JhonattanAron/Auren_Terminal/stargazers)
 
 <br>
 
@@ -49,13 +50,24 @@ AurenTermKit es un administrador de flujos de desarrollo para la terminal. Agrup
 
 ### Ejecutar
 
+**Instala AurenTermKit desde npm:**
+
 ```bash
-git clone https://github.com/OWNER/REPOSITORY.git
-cd REPOSITORY
+npm i -g auren-termkit
+aurentermkit
+```
+
+`npm i -g auren-termkit` instala el CLI globalmente. Después, ejecuta `aurentermkit` desde cualquier terminal para abrirlo.
+
+**Ejecutar desde el repositorio:**
+
+```bash
+git clone https://github.com/JhonattanAron/Auren_Terminal.git
+cd Auren_Terminal
 npm start
 ```
 
-Reemplaza `OWNER/REPOSITORY` por la dirección de tu fork o clon. No hace falta ejecutar `npm install`: AurenTermKit usa módulos incluidos en Node.js.
+No hace falta ejecutar `npm install` para el modo repositorio: AurenTermKit usa módulos incluidos en Node.js.
 
 En el primer inicio aparece una configuración vacía. Crea una colección con `N`, entra con `Enter`, crea una tarea con `N` y guarda tus comandos.
 
@@ -134,7 +146,11 @@ Selecciona la tarea y pulsa `V`. AurenTermKit sigue sus comandos `cd`, determina
 
 ## ⚙️ Configuración
 
-La configuración activa está en `data/collections.json`. Se crea automáticamente y **no se sube a Git**: puede contener rutas, nombres de proyectos y comandos privados. El repositorio incluye una plantilla vacía en [`data/collections.example.json`](data/collections.example.json).
+La configuración activa se crea automáticamente y **no se sube a Git**: puede contener rutas, nombres de proyectos y comandos privados.
+
+- Instalación global: `~/.aurentermkit/collections.json` (en Windows, bajo tu carpeta de usuario).
+- Ejecución desde el repositorio: `data/collections.json`.
+- Plantilla limpia: [`data/collections.example.json`](data/collections.example.json).
 
 Ejemplo de estructura:
 
@@ -164,10 +180,27 @@ Ejemplo de estructura:
 
 ## 🌱 Contribuir
 
-¿Tienes una idea, encontraste un bug o quieres agregar soporte para otro shell? Abre un issue o envía un pull request desde la página de GitHub del repositorio. Mantén los cambios simples, multiplataforma y fáciles de usar desde el teclado.
+¿Tienes una idea, encontraste un bug o quieres agregar soporte para otro shell? Abre un [issue](https://github.com/JhonattanAron/Auren_Terminal/issues) o envía un pull request. Mantén los cambios simples, multiplataforma y fáciles de usar desde el teclado.
 
 Si AurenTermKit te resulta útil, ⭐ **deja una estrella en el repo**: ayuda a que más desarrolladores lo encuentren.
 
 ## Licencia
 
 Todavía no se ha elegido una licencia para el repositorio.
+
+## Publicar en npm (mantenimiento)
+
+Cuando el paquete esté listo y el nombre `auren-termkit` esté disponible en npm:
+
+```bash
+npm login
+npm pack --dry-run
+npm publish --access public
+```
+
+Una vez publicada la versión, cualquier usuario podrá instalarla y abrir el CLI así:
+
+```bash
+npm i -g auren-termkit
+aurentermkit
+```
