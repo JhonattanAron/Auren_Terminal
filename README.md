@@ -188,21 +188,4 @@ Si AurenTermKit te resulta útil, ⭐ **deja una estrella en el repo**: ayuda a 
 
 ## Licencia
 
-Todavía no se ha elegido una licencia para el repositorio.
-
-## Publicar en npm (mantenimiento)
-
-Cuando el paquete esté listo y el nombre `auren-termkit` esté disponible en npm:
-
-```bash
-npm login
-npm pack --dry-run
-npm publish --access public
-```
-
-Una vez publicada la versión, cualquier usuario podrá instalarla y abrir el CLI así:
-
-```bash
-npm i -g auren-termkit
-aurentermkit
-```
+Este proyecto está distribuido bajo la [Licencia MIT](LICENSE).

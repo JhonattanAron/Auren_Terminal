@@ -2,6 +2,7 @@
   "name": "auren-termkit",
   "version": "1.0.0",
   "description": "Administrador interactivo de colecciones, tareas y terminales para desarrollo",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JhonattanAron/Auren_Terminal.git"
