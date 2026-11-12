@@ -1,6 +1,6 @@
 {
   "name": "auren-termkit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Administrador interactivo de colecciones, tareas y terminales para desarrollo",
   "license": "MIT",
   "repository": {
@@ -19,6 +19,7 @@
     "bin/aurentermkit.js",
     "src/cli.js",
     "assets/aurentermkit-preview.svg",
+    "LICENSE",
     "data/collections.example.json",
     "README.md"
   ],
@@ -35,5 +36,8 @@
   "scripts": {
     "start": "node src/cli.js",
     "dev": "node src/cli.js"
+  },
+  "dependencies": {
+    "auren-termkit": "^1.0.1"
   }
 }

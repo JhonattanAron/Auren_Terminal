@@ -2,9 +2,9 @@
 
 # AurenTermKit
 
-### Tu entorno de desarrollo, listo desde una sola terminal.
+### Your development environment, ready from a single terminal.
 
-Guarda comandos por proyecto, inicia tu stack con una tecla y sigue todos los logs en una TUI clara. Sin navegador. Sin ventanas de terminal duplicadas. Sin dependencias npm de terceros.
+Save commands by project, start your stack with one key, and follow every log in a clear TUI. No browser. No duplicate terminal windows. No third-party npm dependencies.
 
 ![Node.js 18+](https://img.shields.io/badge/Node.js-18%2B-339933?logo=node.js&logoColor=white)
 ![Runtime dependencies](https://img.shields.io/badge/runtime%20dependencies-0-8b7cff)
@@ -12,54 +12,56 @@ Guarda comandos por proyecto, inicia tu stack con una tecla y sigue todos los lo
 ![Terminal UI](https://img.shields.io/badge/interface-terminal-42b883)
 [![GitHub stars](https://img.shields.io/github/stars/JhonattanAron/Auren_Terminal?style=social)](https://github.com/JhonattanAron/Auren_Terminal/stargazers)
 
-<br>
-
-![Vista previa de AurenTermKit: colecciones, tareas, sesiones y logs en vivo](assets/aurentermkit-preview.svg)
+[View README in Spanish](README.es.md)
 
 <br>
 
-[Inicio rápido](#-inicio-rápido) · [Controles](#-controles) · [Tareas](#-crear-una-tarea) · [Configuración](#-configuración)
+![AurenTermKit preview: collections, tasks, sessions, and live logs](assets/aurentermkit-preview.svg)
+
+<br>
+
+[Quick start](#-quick-start) · [Controls](#-controls) · [Tasks](#-create-a-task) · [Configuration](#-configuration) · [Languages](#-languages)
 
 </div>
 
 ---
 
-## ¿Qué es?
+## What is it?
 
-AurenTermKit es un administrador de flujos de desarrollo para la terminal. Agrupa proyectos en **colecciones**, guarda sus **tareas** y ejecuta cada comando en orden dentro de una sesión integrada.
+AurenTermKit is a development workflow manager for your terminal. Group projects into **collections**, save their **tasks**, and run each command in order inside an integrated session.
 
-Úsalo para iniciar frontend y backend, levantar servicios locales o repetir cualquier secuencia de comandos que suelas escribir a mano.
+Use it to start your frontend and backend, launch local services, or repeat any sequence of commands you usually type by hand.
 
-### Hecho para el flujo real de desarrollo
+### Built for real development workflows
 
-- **Una tecla para arrancar:** ejecuta una tarea o todas las tareas de una colección.
-- **Logs donde los necesitas:** observa la salida de cada proceso dentro del panel lateral.
-- **Sesiones bajo control:** detén una tarea individual o cierra AurenTermKit para terminar también sus procesos hijos.
-- **Terminal primero:** navega con el teclado; nunca tienes que cambiar a una página web.
-- **Comandos editables:** conserva los comandos guardados o reemplázalos desde la misma interfaz.
-- **Comodidad de shell:** autocompletado local para rutas y scripts npm, historial de líneas y acceso rápido a VS Code.
-- **Configuración local:** tus colecciones, carpetas y comandos se quedan en tu equipo.
+- **Start with one key:** run a task or every task in a collection.
+- **Logs where you need them:** view each process's output in the side panel.
+- **Sessions under control:** stop an individual task, or close AurenTermKit to stop its child processes too.
+- **Terminal first:** navigate with your keyboard; there is no need to switch to a web page.
+- **Editable commands:** keep saved commands or replace them from the same interface.
+- **Shell conveniences:** local autocomplete for paths and npm scripts, command history, and quick access to VS Code.
+- **Local configuration:** your collections, folders, and commands stay on your machine.
 
-## ✨ Inicio rápido
+## ✨ Quick start
 
-### Requisitos
+### Requirements
 
-- Node.js 18 o posterior.
-- PowerShell o CMD en Windows; una terminal interactiva en macOS/Linux.
-- Opcional: el comando `code` de Visual Studio Code en `PATH` para abrir las carpetas desde AurenTermKit.
+- Node.js 18 or later.
+- PowerShell or CMD on Windows; an interactive terminal on macOS/Linux.
+- Optional: the Visual Studio Code `code` command in your `PATH` to open folders from AurenTermKit.
 
-### Ejecutar
+### Run it
 
-**Instala AurenTermKit desde npm:**
+**Install AurenTermKit from npm:**
 
 ```bash
 npm i -g auren-termkit
 aurentermkit
 ```
 
-`npm i -g auren-termkit` instala el CLI globalmente. Después, ejecuta `aurentermkit` desde cualquier terminal para abrirlo.
+`npm i -g auren-termkit` installs the CLI globally. Then run `aurentermkit` from any terminal to open it.
 
-**Ejecutar desde el repositorio:**
+**Run it from the repository:**
 
 ```bash
 git clone https://github.com/JhonattanAron/Auren_Terminal.git
@@ -67,92 +69,96 @@ cd Auren_Terminal
 npm start
 ```
 
-No hace falta ejecutar `npm install` para el modo repositorio: AurenTermKit usa módulos incluidos en Node.js.
+You do not need to run `npm install` when using the repository: AurenTermKit uses modules built into Node.js.
 
-En el primer inicio aparece una configuración vacía. Crea una colección con `N`, entra con `Enter`, crea una tarea con `N` y guarda tus comandos.
+On first launch, AurenTermKit opens with an empty configuration. Press `N` to create a collection, `Enter` to open it, then `N` to create a task and save your commands.
 
-## ⌨️ Controles
+## ⌨️ Controls
 
-`Tab` cambia el panel activo. `↑` y `↓` mueven la selección dentro del panel resaltado. La ayuda al pie de la TUI también cambia según el panel.
+`Tab` switches the active panel. `↑` and `↓` move the selection within the highlighted panel. The help text at the bottom of the TUI also changes to match the active panel.
 
 <details open>
-<summary><strong>Colecciones</strong></summary>
+<summary><strong>Collections</strong></summary>
 
-- `↑` / `↓` — elegir colección.
-- `←` / `→` — cambiar colección.
-- `Enter` — abrir la colección y enfocar sus tareas.
-- `A` — iniciar todas las tareas de esta colección.
-- `N` — crear colección.
-- `E` — cambiar su nombre.
-- `D` — eliminarla, con confirmación.
-
-</details>
-
-<details>
-<summary><strong>Tareas</strong></summary>
-
-- `↑` / `↓` — elegir tarea.
-- `Enter` — ejecutar la tarea seleccionada.
-- `A` — iniciar todas las tareas de la colección.
-- `V` — abrir en VS Code la carpeta donde termina trabajando la tarea.
-- `N` — guardar una tarea nueva.
-- `E` — editar nombre, descripción o comandos.
-- `D` — eliminar la tarea, con confirmación.
+- `↑` / `↓` — select a collection.
+- `←` / `→` — switch collections.
+- `Enter` — open a collection and focus its tasks.
+- `A` — start every task in the collection.
+- `N` — create a collection.
+- `E` — rename it.
+- `D` — delete it, with confirmation.
 
 </details>
 
 <details>
-<summary><strong>Terminales y salida</strong></summary>
+<summary><strong>Tasks</strong></summary>
 
-- `↑` / `↓` — elegir una sesión; sus logs aparecen en el panel derecho.
-- `X` — detener la sesión seleccionada y sus procesos hijos.
-- `C` — limpiar sesiones terminadas.
-- `Ctrl+C` dos veces en 2.5 segundos — cerrar AurenTermKit y terminar todas las sesiones.
+- `↑` / `↓` — select a task.
+- `Enter` — run the selected task.
+- `A` — start every task in the collection.
+- `V` — open the folder where the task ends up in VS Code.
+- `N` — save a new task.
+- `E` — edit its name, description, or commands.
+- `D` — delete it, with confirmation.
 
 </details>
 
-En cualquier prompt escribe `exit` para cancelar y volver a la interfaz. `Q` y `Esc` no cierran la aplicación.
+<details>
+<summary><strong>Terminals and output</strong></summary>
 
-## 🧩 Crear una tarea
+- `↑` / `↓` — select a session; its logs appear in the right panel.
+- `X` — stop the selected session and its child processes.
+- `C` — clear finished sessions.
+- Press `Ctrl+C` twice within 2.5 seconds — close AurenTermKit and stop all sessions.
 
-1. En **Colecciones**, pulsa `N` y escribe un nombre, por ejemplo `Microcredit`.
-2. Pulsa `Enter` para abrirla; en **Tareas**, pulsa `N`.
-3. Escribe un nombre, por ejemplo `Backend`.
-4. Escribe cada comando en una línea. Pulsa `Enter` en una línea vacía o escribe `save` y pulsa `Enter`.
+</details>
 
-Ejemplo:
+At any prompt, type `exit` to cancel and return to the interface. `Q` and `Esc` do not close the application.
+
+## 🧩 Create a task
+
+1. In **Collections**, press `N` and enter a name, such as `Microcredit`.
+2. Press `Enter` to open it; in **Tasks**, press `N`.
+3. Enter a name, such as `Backend`.
+4. Enter each command on its own line. Press `Enter` on an empty line, or type `save` and press `Enter`.
+
+Example:
 
 ```text
-cd home/Servidor/projects/microcredit-system/microcredit-backend/
+cd home/Server/projects/microcredit-system/microcredit-backend/
 nest start --watch
 save
 ```
 
-Los comandos corren en orden dentro del mismo proceso. La carpeta inicial predeterminada es `C:\Users\<usuario>` en Windows y el directorio home en macOS/Linux. Un `cd` cambia la carpeta de trabajo de los comandos siguientes.
+Commands run in order within the same process. The default starting folder is `C:\Users\<username>` on Windows and the home directory on macOS/Linux. A `cd` changes the working directory for subsequent commands.
 
-`Tab` completa rutas y scripts npm usando lógica propia de Node.js; no depende de PowerShell ni de la política de ejecución de Windows. `↑` / `↓` recorren el historial en el editor.
+`Tab` completes paths and npm scripts using Node.js logic; it does not depend on PowerShell or the Windows execution policy. Use `↑` / `↓` to browse command history in the editor.
 
-Al editar una tarea, responde `N` a “¿Reemplazar los comandos actuales?” para conservarlos. También puedes responder `S` y escribir `save` sin agregar líneas: AurenTermKit mantiene los comandos anteriores y guarda los demás cambios.
+When editing a task, answer `N` to “Replace the current commands?” to keep them. You can also answer `Y` and type `save` without adding lines: AurenTermKit keeps the existing commands and saves your other changes.
 
-## 🖥️ Una sola TUI para todo el stack
+## 🖥️ One TUI for your whole stack
 
-Las sesiones se ejecutan en segundo plano y escriben su salida en el panel **Logs**. En Windows se usa `cmd.exe`, así las herramientas de npm encuentran sus ejecutables `.cmd` sin depender de scripts PowerShell. En macOS/Linux se usa `$SHELL` o Bash como alternativa.
+Sessions run in the background and send their output to the **Logs** panel. On Windows, AurenTermKit uses `cmd.exe`, so npm tools can find their `.cmd` executables without relying on PowerShell scripts. On macOS/Linux, it uses `$SHELL` or falls back to Bash.
 
-Al cerrar AurenTermKit, el gestor termina el árbol completo de cada tarea (`taskkill /T` en Windows y el grupo de procesos en macOS/Linux) para que no queden servidores de desarrollo olvidados.
+When AurenTermKit closes, the manager stops the full process tree for each task (`taskkill /T` on Windows and the process group on macOS/Linux), so development servers are not left running.
 
-## 🧭 Abrir una tarea en VS Code
+## 🧭 Open a task in VS Code
 
-Selecciona la tarea y pulsa `V`. AurenTermKit sigue sus comandos `cd`, determina la carpeta final y abre `code .` ahí. Debes tener instalado el comando `code` de VS Code en `PATH`.
+Select a task and press `V`. AurenTermKit follows its `cd` commands, determines the final folder, and runs `code .` there. The VS Code `code` command must be available in your `PATH`.
 
-## ⚙️ Configuración
+## ⚙️ Configuration
 
-La configuración activa se crea automáticamente y **no se sube a Git**: puede contener rutas, nombres de proyectos y comandos privados.
+The active configuration is created automatically and **is not committed to Git**: it may contain private paths, project names, and commands.
 
-- Instalación global: `~/.aurentermkit/collections.json` (en Windows, bajo tu carpeta de usuario).
-- Ejecución desde el repositorio: `data/collections.json`.
-- Plantilla limpia: [`data/collections.example.json`](data/collections.example.json).
+- Global installation: `~/.aurentermkit/collections.json` (under your user folder on Windows).
+- Running from the repository: `data/collections.json`.
+- Clean template: [`data/collections.example.json`](data/collections.example.json).
 
-Ejemplo de estructura:
+## 🌐 Languages
+
+AurenTermKit starts in English by default. Press `L` in the interface and enter `es` to switch to Spanish or `en` to switch back to English. Your selection is saved in `collections.json` and remembered after restarting.
+
+Example configuration:
 
 ```json
 {
@@ -160,15 +166,15 @@ Ejemplo de estructura:
     {
       "id": "microcredit",
       "name": "Microcredit",
-      "description": "Entorno local",
+      "description": "Local environment",
       "tasks": [
         {
           "id": "backend",
           "name": "Backend",
-          "description": "API local",
+          "description": "Local API",
           "cwd": "C:\\Users\\aronc",
           "commands": [
-            "cd home/Servidor/projects/microcredit-system/microcredit-backend/",
+            "cd home/Server/projects/microcredit-system/microcredit-backend/",
             "nest start --watch"
           ]
         }
@@ -178,14 +184,14 @@ Ejemplo de estructura:
 }
 ```
 
-## 🌱 Contribuir
+## 🌱 Contributing
 
-¿Tienes una idea, encontraste un bug o quieres agregar soporte para otro shell? Abre un [issue](https://github.com/JhonattanAron/Auren_Terminal/issues) o envía un pull request. Mantén los cambios simples, multiplataforma y fáciles de usar desde el teclado.
+Have an idea, found a bug, or want to add support for another shell? Open an [issue](https://github.com/JhonattanAron/Auren_Terminal/issues) or send a pull request. Please keep changes simple, cross-platform, and easy to use from the keyboard.
 
-Si AurenTermKit te resulta útil, ⭐ **deja una estrella en el repo**: ayuda a que más desarrolladores lo encuentren.
+If AurenTermKit is useful to you, ⭐ **star the repo** to help more developers find it.
 
-¿Quieres contactar al creador? Sígueme en [Instagram](https://www.instagram.com/jhonattan_aron/).
+Want to get in touch with the creator? Follow me on [Instagram](https://www.instagram.com/jhonattan_aron/).
 
-## Licencia
+## License
 
-Este proyecto está distribuido bajo la [Licencia MIT](LICENSE).
+This project is distributed under the [MIT License](LICENSE).
